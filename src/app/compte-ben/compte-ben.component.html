@@ -1,0 +1,125 @@
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-data">
+
+      <!--logo end-->
+
+
+      <!--search-bar end-->
+      <nav>
+
+      </nav>
+      <!--nav end-->
+      <div class="menu-btn">
+        <a href="#" title=""><i class="fa fa-bars"></i></a>
+      </div>
+      <!--menu-btn end-->
+      <div class="user-account">
+        <div class="user-info">
+          <img src="http://via.placeholder.com/30x30" alt="">
+          <a href="#" title="">{{user.login}}</a>
+          <i class="la la-sort-down"></i>
+        </div>
+        <div class="user-account-settingss">
+          <h3>Parametre</h3>
+          <ul class="us-links">
+            <li><a href="#" title="">Aide</a></li>
+            <li><a href="#" title="">Terme & Conditions</a></li>
+            <li><a href="#" title="">Mon compte Admin</a></li>
+            <li><a routerLink="/assocompte" title="">Compte Associations</a></li>
+            <li><a href="#" title="">Compte Bénévoles</a></li>
+          </ul>
+          <h3 class="tc"><a  title="" (click)="logOut()" >Se deconnecter</a></h3>
+        </div>
+        <!--user-account-settingss end-->
+      </div>
+    </div>
+    <!--header-data end-->
+  </div>
+</header>
+
+<main>
+
+
+  <div class="main-section">
+    <div class="container">
+      <div class="main-section-data">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+            <div class="main-left-sidebar no-margin">
+              <div class="user-data full-width">
+                <div class="user-profile">
+                  <div class="username-dt">
+                    <div class="usr-pic">
+                      <img src="http://via.placeholder.com/100x100" alt="">
+                    </div>
+                  </div>
+                  <!--username-dt end-->
+                  <div class="user-specs">
+                    <h3>{{user.login}}</h3>
+                    <span>Admin </span>
+                  </div>
+                </div>
+                <!--user-profile end-->
+                <ul class="user-fw-status">
+                  <li>
+                    <h4 >Notification</h4>
+                    <a href="http://localhost:4200/adminotif">{{user.notification}}</a>
+                  </li>
+
+                </ul>
+              </div>
+              <!--user-data end-->
+              <!--suggestions end-->
+              <!--tags-sec end-->
+            </div>
+            <!--main-left-sidebar end-->
+          </div>
+
+          <div class="col-lg-6 col-md-8 no-pd">
+
+            <div class="main-ws-sec">
+              <div class="s007">
+
+                <div class="posts-section">
+                  <div style="font-size: 40px;text-align: center">Les comptes benevoles</div>
+                  <br/>
+
+                  <table *ngIf="ben" class="table table-bordered">
+                    <tr style="background-color: rgba(191,33,13,0.7)">
+                      <th>Nom</th><th>adresse</th><th>Telephone</th><th>Points</th><th>Notifications</th><th>Login</th><th>Modifier</th>
+                    </tr>
+
+                      <td>{{ben.nom}}</td>
+                      <td>{{ben.adresse}}</td>
+                      <td>{{ben.tel}}</td>
+                      <td>{{ben.points}}</td>
+                      <td>{{ben.notification}}</td>
+                      <td>{{ben.login}}</td>
+
+                      <td><a class="btn btn-success" (click)="onEditCompte(ben)"> Modifier</a></td>
+
+
+
+                  </table>
+                </div>
+                <!--posts-section end-->
+              </div>
+              <!--main-ws-sec end-->
+            </div>
+            <div class="col-lg-3 pd-right-none no-pd">
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+

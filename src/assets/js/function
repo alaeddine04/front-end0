@@ -1,0 +1,84 @@
+import {BenevolformComponent} from "../../app/benevolform/benevolform.component";
+
+function verifnom(champ)
+{
+  if(champ.value.length < 5 || champ.value.length > 25)
+  {
+    return  false ;
+  }
+  else
+  {
+    return true;
+  }
+}
+function veriflog(champ)
+{
+  if(champ.value.length < 6 || champ.value.length > 25)
+  {
+    return   false ;
+  }
+  else
+  {
+    return true;
+  }
+}
+function verifmdp(champ)
+{
+  var regex = /[A-Z].*[a-z]|[a-z].*[A-Z]/;
+  if(!regex.test(champ.value) || champ.value.length < 8)
+  {
+    return false;
+  }
+  else
+  {
+
+    return true;
+  }
+}
+function verifadr(champ)
+{
+  if(champ.value.length < 3 || champ.value.length > 25)
+  {
+    return   false ;
+  }
+  else
+  {
+    return true;
+  }
+}
+function verifnum(champ)
+{
+  var regex = /[0-9]*/;
+  if(champ.value.length !=10 || !regex.test(champ.value))
+  {
+    return   false ;
+  }
+  else
+  {
+    return true;
+  }
+}
+function verifconf(champ)
+{
+  var champ1 = document.getElementById("mdp");
+  if(champ1 !=  champ.value)
+  {
+    return   false ;
+  }
+  else
+  {
+    return true;
+  }
+}
+
+function verifForm(f) {
+  var champ = document.getElementById("log")
+  for (var i = 0; i < this.benevols.length; i++) {
+    if (champ === this.benevols[i]) {
+      alert("CE LOGIN EXISTE DEJA");
+      return true;
+    } else {
+      return false;
+    }
+  }
+}

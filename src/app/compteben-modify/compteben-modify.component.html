@@ -1,0 +1,200 @@
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-data">
+
+      <!--logo end-->
+
+
+      <!--search-bar end-->
+      <nav>
+
+      </nav>
+      <!--nav end-->
+      <div class="menu-btn">
+        <a href="#" title=""><i class="fa fa-bars"></i></a>
+      </div>
+      <!--menu-btn end-->
+      <div class="user-account">
+        <div class="user-info">
+          <img src="http://via.placeholder.com/30x30" alt="">
+          <a href="#" title="">{{user.nom}}</a>
+          <i class="la la-sort-down"></i>
+        </div>
+        <div class="user-account-settingss">
+          <h3>Parametre</h3>
+          <ul class="us-links">
+            <li><a href="#" title="">Aide</a></li>
+            <li><a href="#" title="">Terme & Conditions</a></li>
+            <li><a href="#" title="">Mon compte Admin</a></li>
+            <li><a routerLink="/assocompte" title="">Compte Associations</a></li>
+            <li><a href="#" title="">Compte Bénévoles</a></li>
+          </ul>
+          <h3 class="tc"><a  title="" (click)="logOut()" >Se deconnecter</a></h3>
+        </div>
+        <!--user-account-settingss end-->
+      </div>
+    </div>
+    <!--header-data end-->
+  </div>
+</header>
+
+<main>
+
+
+  <div class="main-section">
+    <div class="container">
+      <div class="main-section-data">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+            <div class="main-left-sidebar no-margin">
+              <div class="user-data full-width">
+                <div class="user-profile">
+                  <div class="username-dt">
+                    <div class="usr-pic">
+                      <img src="http://via.placeholder.com/100x100" alt="">
+                    </div>
+                  </div>
+                  <!--username-dt end-->
+
+                  <div class="user-specs">
+                    <h3>{{user.nom}}</h3>
+                    <span>Admin </span>
+                  </div>
+                </div>
+                <!--user-profile end-->
+                <ul class="user-fw-status">
+                  <li>
+                    <h4 >Notification</h4>
+                    <a href="http://localhost:4200/adminotif">{{user.notification}}</a>
+                  </li>
+
+                </ul>
+              </div>
+              <!--user-data end-->
+              <!--suggestions end-->
+              <!--tags-sec end-->
+            </div>
+            <!--main-left-sidebar end-->
+          </div>
+
+          <div class="col-lg-6 col-md-8 no-pd">
+
+            <div class="main-ws-sec">
+              <div class="s007">
+
+                <div class="posts-section">
+                  <div style="font-size: 40px;text-align: center">Modifier le compte</div>
+                  <br/>
+                  <div class="acc-setting" *ngIf="currentBenevol">
+                    <form #f="ngForm" (ngSubmit)="OnUpdate(f.value)">
+                      <div class="cp-field">
+                        <h5>Nom</h5>
+                        <div class="cpp-fiel">
+                          <input type="text" name="nom" minlength="6" placeholder="nom" ngModel [(ngModel)]="currentBenevol.nom" required #name="ngModel">
+                          <div *ngIf="name.invalid && (name.dirty||name.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="name.errors.required || name.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="fa fa-key"></i>
+                        </div>
+                      </div>
+                      <div class="cp-field">
+                        <h5>Prenom</h5>
+                        <div class="cpp-fiel">
+                          <input type="text" name="prenom" minlength="6" placeholder="prenom" ngModel [(ngModel)]="currentBenevol.adresse" required #name="ngModel">
+                          <div *ngIf="name.invalid && (name.dirty||name.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="name.errors.required || name.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="fa fa-key"></i>
+                        </div>
+                      </div>
+
+                      <div class="cp-field">
+                        <h5>Username</h5>
+                        <div class="cpp-fiel">
+                          <input type="text" name="username" minlength="6" placeholder="username" ngModel readonly [(ngModel)]="currentBenevol.login" required #name="ngModel">
+                          <div *ngIf="name.invalid && (name.dirty||name.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="name.errors.required || name.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="fa fa-key"></i>
+                        </div>
+                      </div>
+                      <div class="cp-field">
+                        <h5>Password</h5>
+                        <div class="cpp-fiel">
+                          <input type="password"  id="mdp" name="mdp"  placeholder="Mot de passe"  [(ngModel)]="currentBenevol.mdp" required minlength="8" pattern="([A-Z].*[a-z]|[a-z].*[A-Z])"
+                                 #ben='ngModel' >
+                          <div *ngIf="ben.invalid && (ben.dirty || ben.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="ben.errors.required">
+                              Le champ est obligatoire.
+                            </div>
+                            <div *ngIf="ben.errors.minlength">
+                              Le champ doit faire au moins 8 caractères.
+                            </div>
+                            <div *ngIf="ben.errors.pattern">
+                              Le mot de passe doit au moin avoir un majiscule et un miniscule.
+                            </div>
+                          </div>
+                          <i class="la la-lock"></i>
+                        </div>
+                      </div>
+
+                      <div class="cp-field">
+                        <h5>Confirm password</h5>
+                        <div class="cpp-fiel">
+                          <input type="password" id="confirmation" name="confirmation"  appConfirmationValidator="mdp" placeholder="Confirmez le mot de passe"  [(ngModel)]="confirmation" required  #con="ngModel">
+                          <div *ngIf="con.invalid && (con.dirty || con.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="con.errors.required">
+                              Ce champ est obligatoire.
+                            </div>
+                            <div *ngIf="con.errors.notEqual &&  !con.errors.required" >
+                              La confirmation et le mot de passe ne sont pas identiques.
+                            </div>
+                          </div>
+                          <i class="la la-lock"></i>
+                        </div>
+                      </div>
+
+
+
+                      <div class="save-stngs pd2" style="margin-left: 350px">
+                        <ul>
+                          <li><button class="btn-success" type="submit">Modifier</button></li>
+                        </ul>
+                      </div><!--save-stngs end-->
+                    </form>
+                  </div>
+
+                </div>
+
+              </div>
+              <!--posts-section end-->
+            </div>
+            <!--main-ws-sec end-->
+          </div>
+          <div class="col-lg-3 pd-right-none no-pd">
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+

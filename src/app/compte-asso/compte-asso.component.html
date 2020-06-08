@@ -1,0 +1,132 @@
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-data">
+
+      <!--logo end-->
+
+
+      <!--search-bar end-->
+      <nav>
+
+      </nav>
+      <!--nav end-->
+      <div class="menu-btn">
+        <a href="#" title=""><i class="fa fa-bars"></i></a>
+      </div>
+      <!--menu-btn end-->
+      <div class="user-account">
+        <div class="user-info">
+          <img src="http://via.placeholder.com/30x30" alt="">
+          <a href="#" title="">{{user.login}}</a>
+          <i class="la la-sort-down"></i>
+        </div>
+        <div class="user-account-settingss">
+          <h3>Parametre du compte</h3>
+          <ul class="us-links">
+            <li><a href="#" title="">Aide</a></li>
+            <li><a href="#" title="">Terme & Conditions</a></li>
+            <li><a routerLink="/compteass" title="">Mon compte association</a></li>
+
+          </ul>
+          <h3 class="tc"><a  title="" (click)="logOut()" >Logout</a></h3>
+        </div>
+        <!--user-account-settingss end-->
+      </div>
+    </div>
+    <!--header-data end-->
+  </div>
+</header>
+
+<main>
+
+
+  <div class="main-section">
+    <div class="container">
+      <div class="main-section-data">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+            <div class="main-left-sidebar no-margin">
+              <div class="user-data full-width">
+                <div class="user-profile">
+                  <div class="username-dt">
+                    <div class="usr-pic">
+                      <img src="http://via.placeholder.com/100x100" alt="">
+                    </div>
+                  </div>
+                  <!--username-dt end-->
+                  <div class="user-specs">
+                    <h3><a href="http://localhost:4200/association">{{user.login}}</a></h3>
+                  </div>
+                </div>
+                <!--user-profile end-->
+                <ul class="user-fw-status">
+                  <li>
+                    <h4>Description</h4>
+                    <span><FONT size="3pt">  1er centre pluridisciplinaire </FONT> </span>
+                    <span><FONT size="3pt"> d'éveil psychomoteur </FONT> </span>
+                    <span><FONT size="3pt"> pour enfants</FONT> </span>
+
+                  </li>
+                  <li>
+                    <h4>Nombre de publication selectionner </h4>
+                    <span>5</span>
+                  </li>
+                  <li>
+                    <h4 >Noté le Benevole</h4>
+                    <a href="http://localhost:4200/notifiasso">Noté</a>
+                  </li>
+
+                </ul>
+              </div>
+              <!--user-data end-->
+              <!--suggestions end-->
+              <!--tags-sec end-->
+            </div>
+            <!--main-left-sidebar end-->
+          </div>
+
+          <div class="col-lg-6 col-md-8 no-pd">
+
+            <div class="main-ws-sec">
+              <div class="s007">
+
+                <div class="posts-section">
+                  <div style="font-size: 40px;text-align: center">Les comptes associations</div>
+                  <br/>
+
+                  <table *ngIf="asso" class="table table-bordered">
+                    <tr style="background-color: rgba(191,33,13,0.7)">
+                      <th>Nom</th><th>Email</th><th>Description</th><th>Login</th><th>Telephone</th><th>Fax</th><th>Modifier</th>
+                    </tr>
+
+                      <td>{{asso.nom}}</td>
+                      <td>{{asso.email}}</td>
+                      <td>{{asso.description}}</td>
+                      <td>{{asso.login}}</td>
+                      <td>{{asso.tel}}</td>
+                      <td>{{asso.fax}}</td>
+
+                      <td><a class="btn btn-success" (click)="onEditCompte(asso)"> Modifier</a></td>
+
+
+                  </table>
+                </div>
+                <!--posts-section end-->
+              </div>
+              <!--main-ws-sec end-->
+            </div>
+            <div class="col-lg-3 pd-right-none no-pd">
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+

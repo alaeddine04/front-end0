@@ -1,0 +1,18 @@
+/*mysql_connect("serveur","root","");
+mysql_select_db("db") or die(mysql_error); */
+private function Banni() {
+		$sql = "SELECT login
+				FROM benevol ";
+		$requete = $this->bdd->prepare($sql);
+		$donnees = $requete->fetch();
+		return false;
+	}
+	public function VerifConnexion() {
+		if($this->ChampsVide()) {
+			$erreur = "Veuillez remplir tous les champs";}
+		else if($this->PseudoExist()) {
+					$erreur = "Ce login existe deja";}
+
+		return $erreur;
+	}
+

@@ -1,0 +1,365 @@
+<body class="sign-in">
+
+
+<div class="wrapper">
+
+
+  <div class="sign-in-page">
+    <div class="signin-popup">
+      <div class="signin-pop">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="cmp-info">
+              <div class="cm-logo">
+                <img src="images/cm-logo.png" alt="">
+                <p>Bénévolat Maroc, nous donnera tous l'opportunité à rendre notre Maroc mieux que jamais.</p>
+              </div><!--cm-logo end-->
+              <img src="https://images.squarespace-cdn.com/content/v1/573d05cb45bf2146cee62a45/1464149942796-G7LEYKUJ0E0SPTU2SLVB/ke17ZwdGBToddI8pDm48kBUEu7zrGtHLwnxdefqUjTkUqsxRUqqbr1mOJYKfIPR7-cSjRlYkxRIwAGDKGa5isiU6vwwvQI8TqdviAvvOKk5CRW4BPu10St3TBAUQYVKcx4I8-QtszWCwOocHFZ7UwUZU5rFPADGYM2zCNfdWVs0qmFK8Ax4OzaTe05C3jjxk/635944900017276520-1352931971_Volunteering_Hands1170x500.png?format=1500w" alt="">
+            </div><!--cmp-info end-->
+          </div>
+          <div class="col-lg-6">
+            <div class="login-sec">
+              <ul class="sign-control">
+                <li data-tab="tab-1" class="current"><a href="#" title="">Se connecter</a></li>
+                <li data-tab="tab-2"><a href="#" title="">S'enregistrer</a></li>
+              </ul>
+              <div class="sign_in_sec current" id="tab-1">
+
+                <h3>Se connecter</h3>
+                <form name="form" onsubmit="return champvide()" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                  <div class="alert alert-danger" role="alert" *ngIf="message">{{message}}</div>
+                  <div class="row">
+                    <div class="col-lg-12 no-pdd">
+                      <div class="sn-field" >
+                        <input type="text" name="username" id="user" placeholder="Username" [(ngModel)]="username" required  #theuser="ngModel">
+                        <div *ngIf="theuser.invalid && (theuser.dirty || theuser.touched)"
+                             class="alert alert-danger">
+                          <div *ngIf="theuser.errors.required">
+                            Le champ est obligatoire.
+                          </div>
+                        </div>
+                        <i class="la la-user"></i>
+                      </div><!--sn-field end-->
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                      <div class="sn-field">
+                        <input type="password" id="pass" name="password" placeholder="Password" [(ngModel)]="password" required  #pass="ngModel">
+                        <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+                             class="alert alert-danger">
+                          <div *ngIf="pass.errors.required">
+                            Le champ est obligatoire.
+                          </div>
+                        </div>
+                        <i class="la la-lock"></i>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                      <div class="checky-sec">
+                        <div class="fgt-sec">
+                          <input type="checkbox" name="cc" id="c1">
+                          <label for="c1">
+                            <span></span>
+                          </label>
+                          <small>Remember me</small>
+                        </div><!--fgt-sec end-->
+                        <a href="#" title="">Forgot Password?</a>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                      <button type="submit" value="submit"  [disabled]="f.invalid" >Se connecter</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="login-resources">
+                  <h4>Se connecter Via un compte de reseaux sociaux</h4>
+                  <ul>
+                    <li><a href="#" title="" class="fb"><i class="fa fa-facebook"></i>Se connecter Via Facebook</a></li>
+                    <li><a href="#" title="" class="tw"><i class="fa fa-twitter"></i>Se connecter Via Twitter</a></li>
+                  </ul>
+                </div><!--login-resources end-->
+              </div><!--sign_in_sec end-->
+
+              <div class="sign_in_sec" id="tab-2">
+
+                <div class="signup-tab">
+                  <i class="fa fa-long-arrow-left"></i>
+                  <h4>Etes-vous un Bénévole ou une Association? </h4>
+                  <br>
+                  <br>
+                  <ul>
+                    <li data-tab="tab-3" class="current"><a href="#" title="">Bénévole</a></li>
+
+                    <li data-tab="tab-4"><a href="#" title="">Association</a></li>
+                  </ul>
+                </div><!--signup-tab end-->
+                <div class="dff-tab current" id="tab-3">
+                  <form id="inscription" name="iscription" #fo="ngForm" (ngSubmit)="fo.valid && signUp(fo.value)"  novalidate>
+                    <div class="alert alert-danger" role="alert" *ngIf="errormessage">{{errormessage}}</div>
+                    <div class="row">
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" id="name" name="nom" minlength="6" placeholder="Nom complet"   [(ngModel)]="nom"
+                                 required
+                                 #name="ngModel">
+                          <div *ngIf="name.invalid && (name.dirty||name.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="name.errors.required || name.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-user"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" id="log" name="login"  placeholder="Login" minlength="6" [(ngModel)]="user"
+                                 required
+                                 #us="ngModel" >
+                          <div *ngIf="us.invalid && (us.dirty || us.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="us.errors.required || us.errors.minlength">
+                              Le champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-globe"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="password"  id="mdp" name="mdp"  placeholder="Mot de passe"  [(ngModel)]="benevole" required minlength="8"
+                                 #ben='ngModel' >
+                          <div *ngIf="ben.invalid && (ben.dirty || ben.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="ben.errors.required">
+                              Le champ est obligatoire.
+                            </div>
+                            <div *ngIf="ben.errors.minlength">
+                              Le champ doit faire au moins 8 caractères.
+                            </div>
+
+                          </div>
+                          <i class="la la-lock"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="password" id="confirmation" name="confirmation"  appConfirmationValidator="mdp" placeholder="Confirmez le mot de passe"  [(ngModel)]="confirmation" required  #con="ngModel">
+                          <div *ngIf="con.invalid && (con.dirty || con.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="con.errors.required">
+                              Ce champ est obligatoire.
+                            </div>
+                            <div *ngIf="con.errors.notEqual &&  !con.errors.required" >
+                              La confirmation et le mot de passe ne sont pas identiques.
+                            </div>
+                          </div>
+                          <i class="la la-lock"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" id="adr" name="adresse"  placeholder="Adresse" minlength="3" onblur="verifadr()" [(ngModel)]="adr" required  #a="ngModel">
+                          <div *ngIf="a.invalid && (a.dirty || a.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="a.errors.required || a.errors.minlength">
+                              Le champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-globe"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="tel" id="num" name="tel" class="form-control"  placeholder="numéro de telephone" [(ngModel)]="num" required pattern="[0-9]*" maxlength="10" minlength="10" #n="ngModel">
+                          <div *ngIf="n.invalid && (n.dirty ||n.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="n.errors.required">
+                              Ce champ est obligatoire.
+                            </div>
+                            <div *ngIf="n.errors.pattern || (n.errors.maxlength || n.errors.minlength)">
+                              Entrer un numero de téléphone valide.
+                            </div>
+                          </div>
+                          <i class="la la-globe"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="checky-sec st2">
+                          <div class="fgt-sec">
+                            <input type="checkbox" name="cc" id="c2">
+                            <label for="c2">
+                              <span></span>
+                            </label>
+                            <small>Yes, I understand and agree to the Bénévolat Maroc Terms & Conditions.</small>
+                          </div><!--fgt-sec end-->
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <button type="submit" value="submit" [disabled]="fo.invalid" > Commencer</button>
+                      </div>
+                    </div>
+                  </form>
+                </div><!--dff-tab end-->
+                <div class="dff-tab" id="tab-4">
+                  <form #form="ngForm" (ngSubmit)="form.valid && signUPA(form.value)"  novalidate>
+                    <div class="alert alert-danger" role="alert" *ngIf="errormessage">{{errormessage}}</div>
+                    <div class="row">
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="nom" placeholder="Nom d'association" minlength="6" [(ngModel)]="nomA" required #na="ngModel">
+                          <div *ngIf="na.invalid && (na.dirty||na.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="na.errors.required || na.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-building-o"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="description" minlength="6" placeholder="A propos de l'asoociation"[(ngModel)]="des" required #d="ngModel">
+                          <div *ngIf="d.invalid && (d.dirty||d.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="d.errors.required || d.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-bookmark"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="adresse"  minlength="3" placeholder="Ville" [(ngModel)]="villeA" required #ville="ngModel">
+                          <div *ngIf="ville.invalid && (ville.dirty||ville.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="ville.errors.required || ville.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-globe"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="email" name="email" placeholder="E-mail@exemple.ma" [(ngModel)]="mail" minlength="6" required #em="ngModel">
+                          <div *ngIf="em.invalid && (em.dirty||em.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="em.errors.required || em.errors.minlength">
+                              Ce champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-envelope-o"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="tel" placeholder="Tel" [(ngModel)]="numA" required pattern="[0-9]*" maxlength="10" minlength="10" #nA="ngModel">
+                          <div *ngIf="nA.invalid && (nA.dirty ||nA.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="nA.errors.required">
+                              Ce champ est obligatoire.
+                            </div>
+                            <div *ngIf="nA.errors.pattern || (nA.errors.maxlength || nA.errors.minlength)">
+                              Entrer un numero de téléphone valide.
+                            </div>
+                          </div>
+                          <i class="la la-phone-square"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="fax" placeholder="Fax" [(ngModel)]="fax" required pattern="[0-9]*" maxlength="10" minlength="10" #x="ngModel">
+                          <div *ngIf="x.invalid && (x.dirty ||x.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="x.errors.required">
+                              Ce champ est obligatoire.
+                            </div>
+                            <div *ngIf="x.errors.pattern || (x.errors.maxlength || x.errors.minlength)">
+                              Entrer un Fax valide.
+                            </div>
+                          </div>
+                          <i class="la la-phone"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="text" name="login" placeholder="Nom d'utilisateur" minlength="6" [(ngModel)]="userA"
+                                 required #usA="ngModel">
+                          <div *ngIf="usA.invalid && (usA.dirty || usA.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="usA.errors.required || usA.errors.minlength">
+                              Le champ est obligatoire.
+                            </div>
+                          </div>
+                          <i class="la la-user"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="password" name="mdp" id=" passAss" placeholder="Mot de passe" [(ngModel)]="passA" required minlength="8"
+                                 #pass='ngModel' >
+                          <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="pass.errors.required">
+                              Le champ est obligatoire.
+                            </div>
+                            <div *ngIf="pass.errors.minlength">
+                              Le champ doit faire au moins 8 caractères.
+                            </div>
+
+                          </div>
+                          <i class="la la-lock"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                          <input type="password" name="repeat-password" placeholder="Confirmez le mot de passe" appConfirmationValidator="passAss"  [(ngModel)]="confirmationA" required  #conA="ngModel">
+                          <div *ngIf="conA.invalid && (conA.dirty || conA.touched)"
+                               class="alert alert-danger">
+                            <div *ngIf="conA.errors.required">
+                              Ce champ est obligatoire.
+                            </div>
+                            <div *ngIf="conA.errors.notEqual &&  !conA.errors.required" >
+                              La confirmation et le mot de passe ne sont pas identiques.
+                            </div>
+                          </div>
+                          <i class="la la-lock"></i>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <div class="checky-sec st2">
+                          <div class="fgt-sec">
+                            <input type="checkbox" name="cc" id="c3">
+                            <label for="c3">
+                              <span></span>
+                            </label>
+                            <small>Yes, I understand and agree to the Bénévolat Maroc Terms & Conditions.</small>
+                          </div><!--fgt-sec end-->
+                        </div>
+                      </div>
+                      <div class="col-lg-12 no-pdd">
+                        <button type="submit" value="submit" [disabled]="form.invalid">Commencer</button>
+                      </div>
+                    </div>
+                  </form>
+                </div><!--dff-tab end-->
+              </div>
+            </div><!--login-sec end-->
+          </div>
+        </div>
+      </div><!--signin-pop end-->
+    </div><!--signin-popup end-->
+    <div class="footy-sec">
+      <div class="container">
+        <ul>
+          <li><a href="#" title="">Informations sur le site</a></li>
+          <li><a href="#" title="">Contactez-nous</a></li>
+        </ul>
+      </div>
+    </div><!--footy-sec end-->
+  </div><!--sign-in-page end-->
+
+
+</div><!--theme-layout end-->
+</body>>
