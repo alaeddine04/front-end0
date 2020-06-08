@@ -25,7 +25,7 @@ export class PublierComponent implements OnInit {
   constructor(private catService: CatalogueService,private router: Router,public dialog: MatDialog){}
   ngOnInit(): void {
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/benevols/" + this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols/" + this.moi)
       .subscribe(ress => {
         this.user = ress;
 
@@ -36,12 +36,12 @@ export class PublierComponent implements OnInit {
   onSavePublication(titre,Ville,Description,Type,Img)
   {
 
-    this.catService.addPub( "http://localhost:8080/publications",{"id_benevol":this.user.id_ben,"ville":Ville,"titre":titre,"type":Type,"img":Img,"description":Description,"etat":"En attente","evaluation":0,"id_association":0,"date":Date.now()})
-    this.catService.getPub("http://localhost:8080/benevol/" + this.user.id_ben)
+    this.catService.addPub( "https://our-backend.herokuapp.com/publications",{"id_benevol":this.user.id_ben,"ville":Ville,"titre":titre,"type":Type,"img":Img,"description":Description,"etat":"En attente","evaluation":0,"id_association":0,"date":Date.now()})
+    this.catService.getPub("https://our-backend.herokuapp.com/benevol/" + this.user.id_ben)
       .subscribe(data => {
         this.benevole = data;
         this.benevole.nb_pub += 1;
-        this.catService.selectPub("http://localhost:8080/benevol/"+this.user.id_ben, this.benevole)
+        this.catService.selectPub("https://our-backend.herokuapp.com/benevol/"+this.user.id_ben, this.benevole)
           .subscribe(ress => {
             this.benevole = ress;
 
@@ -52,11 +52,11 @@ export class PublierComponent implements OnInit {
       }), err => {
       console.log(err);
     };
-    this.catService.getPub("http://localhost:8080/benevol/" + this.user.id_ben)
+    this.catService.getPub("https://our-backend.herokuapp.com/benevol/" + this.user.id_ben)
       .subscribe(data => {
         this.benevole = data;
         this.benevole.nb_pub += 1;
-        this.catService.selectPub("http://localhost:8080/benevol/"+this.user.id_ben, this.benevole)
+        this.catService.selectPub("https://our-backend.herokuapp.com/benevol/"+this.user.id_ben, this.benevole)
           .subscribe(ress => {
             this.benevole = ress;
 
@@ -67,12 +67,12 @@ export class PublierComponent implements OnInit {
       }), err => {
       console.log(err);
     };
-    this.catService.getPub("http://localhost:8080/admins/coucou1")
+    this.catService.getPub("https://our-backend.herokuapp.com/admins/coucou1")
       .subscribe(data => {
         this.admine = data;
 
         this.admine.notification += 1;
-        this.catService.selectPub("http://localhost:8080/admins/coucou1", this.admine)
+        this.catService.selectPub("https://our-backend.herokuapp.com/admins/coucou1", this.admine)
           .subscribe(ress => {
             this.admine = ress;
 

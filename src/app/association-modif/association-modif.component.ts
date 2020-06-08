@@ -28,14 +28,14 @@ export class AssociationModifComponent implements OnInit {
 
   ngOnInit(): void {
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/admins/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/admins/"+this.moi)
       .subscribe(ress => {
         this.user = ress;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/associations")
+    this.catService.getPub("https://our-backend.herokuapp.com/associations")
       .subscribe(ress => {
         this.associations = ress;
 
@@ -43,14 +43,14 @@ export class AssociationModifComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/benevols")
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols")
       .subscribe(data => {
         this.benevol = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/admins")
+    this.catService.getPub("https://our-backend.herokuapp.com/admins")
       .subscribe(data => {
         this.admin = data;
 
@@ -58,7 +58,7 @@ export class AssociationModifComponent implements OnInit {
       console.log(err);
     }
 
-      this.url="http://localhost:8080/associations/"+this.route.snapshot.params.id;
+      this.url="https://our-backend.herokuapp.com/associations/"+this.route.snapshot.params.id;
       this.catService.getPube(this.url)
           .subscribe(data=>{
               this.currentAssociations=data;
@@ -67,12 +67,12 @@ export class AssociationModifComponent implements OnInit {
               console.log(err);
           })
 
-    this.url="http://localhost:8080/associations/"+this.route.snapshot.params.id;
+    this.url="https://our-backend.herokuapp.com/associations/"+this.route.snapshot.params.id;
     this.catService.getPube(this.url)
         .subscribe(data=>{
           this.currentAssociations=data;
           console.log("hello"+this.currentAssociations.login);
-          this.catService.getPub("http://localhost:8080/users/"+this.currentAssociations.login)
+          this.catService.getPub("https://our-backend.herokuapp.com/users/"+this.currentAssociations.login)
               .subscribe(resss => {
                 this.ancienuser = resss;
                 console.log(this.ancienuser);
@@ -104,7 +104,7 @@ export class AssociationModifComponent implements OnInit {
 
     let info = {"id":this.ancienuser.id,"name": this.change.nom, "password": this.change.mdp, "role": this.change.categorie, "username": this.change.login};
 
-    this.catService.selectPub("http://localhost:8080/users/"+this.currentAssociations.login, info)
+    this.catService.selectPub("https://our-backend.herokuapp.com/users/"+this.currentAssociations.login, info)
         .subscribe(data=>{
           alert("modification dans la base users reussie");
           this.router.navigateByUrl("/assocompte")

@@ -22,7 +22,7 @@ export class NotifiAssComponent implements OnInit {
 
   ngOnInit(): void {
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/association/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/association/"+this.moi)
       .subscribe(ress => {
         this.user = ress;
 
@@ -30,7 +30,7 @@ export class NotifiAssComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/publications" )
+    this.catService.getPub("https://our-backend.herokuapp.com/publications" )
       .subscribe(ress => {
         this.publication = ress;
 
@@ -38,14 +38,14 @@ export class NotifiAssComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/benevols" )
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols" )
       .subscribe(data => {
         this.benevol = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/associations" )
+    this.catService.getPub("https://our-backend.herokuapp.com/associations" )
       .subscribe(data => {
         this.association = data;
 
@@ -62,18 +62,18 @@ export class NotifiAssComponent implements OnInit {
     if (conf) {
       this.change = p;
       this.change.evaluation = rating,
-        this.catService.selectPub("http://localhost:8080/publications/" + p.id, this.change)
+        this.catService.selectPub("https://our-backend.herokuapp.com/publications/" + p.id, this.change)
           .subscribe(data => {
             console.log(data);
           }, err => {
             console.log(err);
           })
     }
-    this.catService.getPub("http://localhost:8080/benevol/" + p.id_benevol)
+    this.catService.getPub("https://our-backend.herokuapp.com/benevol/" + p.id_benevol)
       .subscribe(data => {
         this.benevole = data;
         this.benevole.points += rating;
-        this.catService.selectPub("http://localhost:8080/benevol/"+p.id_benevol, this.benevole)
+        this.catService.selectPub("https://our-backend.herokuapp.com/benevol/"+p.id_benevol, this.benevole)
           .subscribe(ress => {
             this.benevol = ress;
 

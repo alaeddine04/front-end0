@@ -23,7 +23,7 @@ export class CompteAssoComponent implements OnInit {
   }
   ngOnInit(): void {
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/association/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/association/"+this.moi)
       .subscribe(ress => {
         this.user = ress;
 
@@ -31,14 +31,14 @@ export class CompteAssoComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/associations")
+    this.catService.getPub("https://our-backend.herokuapp.com/associations")
       .subscribe(data => {
         this.associations = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/association/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/association/"+this.moi)
       .subscribe(data => {
         this.asso = data;
 
@@ -46,14 +46,14 @@ export class CompteAssoComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/benevols")
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols")
       .subscribe(data => {
         this.benevol = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/admins")
+    this.catService.getPub("https://our-backend.herokuapp.com/admins")
       .subscribe(data => {
         this.admin = data;
 

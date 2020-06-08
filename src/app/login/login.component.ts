@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.moii = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/users/" + this.moii)
+    this.catService.getPub("https://our-backend.herokuapp.com/users/" + this.moii)
       .subscribe(ress => {
         this.ourusers = ress;
         let roles = this.ourusers.role
@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
     Authentification.successfulSignUp(this.username);
     resp.subscribe(data => {
       this.message = data, this.moi = localStorage.getItem("username");
-      this.catService.getPub("http://localhost:8080/users/"+this.moi)
+      this.catService.getPub("https://our-backend.herokuapp.com/users/"+this.moi)
         .subscribe(ress => {
           this.ouruser = ress;
           let roles = this.ouruser.role

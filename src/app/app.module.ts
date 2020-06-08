@@ -10,10 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConfirmationValidateurDirective } from "../assets/js/confirmation-validateur.directive";
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NotificationComponent } from './notification/notification.component';
-import { PublicationComponent } from './publication/publication.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminotifComponent } from './adminotif/adminotif.component';
 import { AssociationComponent } from './association/association.component';
@@ -48,10 +46,8 @@ import { ComptebenModifyComponent } from './compteben-modify/compteben-modify.co
     AppComponent,
     ConfirmationValidateurDirective,
     LoginComponent,
-    HomeComponent,
     ProfileComponent,
     NotificationComponent,
-    PublicationComponent,
     AdminComponent,
     AdminotifComponent,
     AssociationComponent,

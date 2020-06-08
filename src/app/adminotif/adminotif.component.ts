@@ -21,14 +21,14 @@ export class AdminotifComponent implements OnInit {
 
   ngOnInit(): void {
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/admins/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/admins/"+this.moi)
       .subscribe(ress => {
         this.user = ress;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/publications" )
+    this.catService.getPub("https://our-backend.herokuapp.com/publications" )
       .subscribe(ress => {
         this.publication = ress;
 
@@ -36,21 +36,21 @@ export class AdminotifComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/benevols" )
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols" )
       .subscribe(data => {
         this.benevol = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/admins" )
+    this.catService.getPub("https://our-backend.herokuapp.com/admins" )
       .subscribe(data => {
         this.admin = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/associations" )
+    this.catService.getPub("https://our-backend.herokuapp.com/associations" )
       .subscribe(data => {
         this.association = data;
 
@@ -64,7 +64,7 @@ export class AdminotifComponent implements OnInit {
       this.change=p;
       this.change.etat="Archivée"
 
-      this.catService.selectPub("http://localhost:8080/publications/"+p.id,this.change)
+      this.catService.selectPub("https://our-backend.herokuapp.com/publications/"+p.id,this.change)
         .subscribe(data => {
           this.admin = data;
 
@@ -75,11 +75,11 @@ export class AdminotifComponent implements OnInit {
 
 
     }
-    this.catService.getPub("http://localhost:8080/admins/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/admins/"+this.moi)
       .subscribe(data => {
         this.admin = data;
         this.admin.notification=0;
-        this.catService.selectPub("http://localhost:8080/admins/"+this.moi,this.admin)
+        this.catService.selectPub("https://our-backend.herokuapp.com/admins/"+this.moi,this.admin)
           .subscribe(ress => {
             this.admin = ress;
 
@@ -98,7 +98,7 @@ export class AdminotifComponent implements OnInit {
       this.change=p;
       this.change.etat="Disponible"
 
-      this.catService.selectPub("http://localhost:8080/publications/"+p.id,this.change)
+      this.catService.selectPub("https://our-backend.herokuapp.com/publications/"+p.id,this.change)
         .subscribe(data => {
           this.admin = data;
 
@@ -106,11 +106,11 @@ export class AdminotifComponent implements OnInit {
         console.log(err);
       }
     }
-    this.catService.getPub("http://localhost:8080/admins/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/admins/"+this.moi)
       .subscribe(data => {
         this.admin = data;
         this.admin.notification=0;
-        this.catService.selectPub("http://localhost:8080/admins/"+this.moi,this.admin)
+        this.catService.selectPub("https://our-backend.herokuapp.com/admins/"+this.moi,this.admin)
           .subscribe(ress => {
             this.admin = ress;
 

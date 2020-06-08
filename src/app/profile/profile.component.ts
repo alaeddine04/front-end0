@@ -29,14 +29,14 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
 
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/benevols/" + this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols/" + this.moi)
       .subscribe(ress => {
         this.user = ress;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/publications")
+    this.catService.getPub("https://our-backend.herokuapp.com/publications")
       .subscribe(ress => {
         this.publication = ress;
         console.log(this.publication);
@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/benevols")
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols")
       .subscribe(data => {
         this.benevols = data;
         console.log(this.benevols);
@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
     this.moi = localStorage.getItem("username");
     this.change = u;
     this.change.notification = '0';
-    this.catService.selectPub("http://localhost:8080/benevol/" + u.id_ben, this.change)
+    this.catService.selectPub("https://our-backend.herokuapp.com/benevol/" + u.id_ben, this.change)
       .subscribe(data => {
         this.mok = data;
 

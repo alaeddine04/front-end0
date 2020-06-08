@@ -7,9 +7,9 @@ import {observable, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class BenevolService {
-  url =  'http://localhost:8080';
+  url =  'https://our-backend.herokuapp.com';
   /*private httpClient: any;*/
-  url1=  'http://localhost:8080/benevols';
+  url1=  'https://our-backend.herokuapp.com/benevols';
   _url= 'assets/data/benevols.json';
   constructor(private http: HttpClient) { }
 

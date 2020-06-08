@@ -20,14 +20,14 @@ export class AdminCompteComponent implements OnInit {
   }
   ngOnInit(): void {
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/admins/"+this.moi)
+    this.catService.getPub("https://our-backend.herokuapp.com/admins/"+this.moi)
       .subscribe(ress => {
         this.user = ress;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/associations")
+    this.catService.getPub("https://our-backend.herokuapp.com/associations")
       .subscribe(ress => {
         this.associations = ress;
 
@@ -35,14 +35,14 @@ export class AdminCompteComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/benevols")
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols")
       .subscribe(data => {
         this.benevol = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/admins")
+    this.catService.getPub("https://our-backend.herokuapp.com/admins")
       .subscribe(data => {
         this.admin = data;
 

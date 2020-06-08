@@ -9,7 +9,7 @@ export class AuthentificationService {
   public logIn(username:string, password:string){
     const headers = new HttpHeaders({
       authorization: 'Basic ' + btoa(username + ':' +password)})
-      return this.http.get("http://localhost:8080/",{headers,responseType:'test' as 'json'})
+      return this.http.get("https://our-backend.herokuapp.com/",{headers,responseType:'test' as 'json'})
     }
 
 

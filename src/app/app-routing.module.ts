@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
-import {HomeComponent} from "./home/home.component";
 import {ProfileComponent} from "./profile/profile.component";
-import {PublicationComponent} from "./publication/publication.component";
 import {NotificationComponent} from "./notification/notification.component";
 import {AdminComponent} from "./admin/admin.component";
 import {AdminotifComponent} from "./adminotif/adminotif.component";
@@ -26,7 +24,6 @@ import {ComptebenModifyComponent} from "./compteben-modify/compteben-modify.comp
 const routes: Routes = [ { path: '', redirectTo:"login", pathMatch:"full" },
   { path: 'login', component: LoginComponent },
   {path:'profile', component:ProfileComponent},
-  {path:'publication', component:PublicationComponent},
   {path:'notification', component:NotificationComponent},
   {path:'admin', component:AdminComponent},
   {path:'adminotif', component:AdminotifComponent},

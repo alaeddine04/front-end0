@@ -24,7 +24,7 @@ export class AssociationComponent implements OnInit {
 
   ngOnInit(): void {
     this.moi = localStorage.getItem("username");
-    this.catService.getPub("http://localhost:8080/association/"+this.moi )
+    this.catService.getPub("https://our-backend.herokuapp.com/association/"+this.moi )
       .subscribe(resss => {
         this.user = resss;
 
@@ -32,7 +32,7 @@ export class AssociationComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/publications")
+    this.catService.getPub("https://our-backend.herokuapp.com/publications")
       .subscribe(ress => {
         this.publication = ress;
 
@@ -40,14 +40,14 @@ export class AssociationComponent implements OnInit {
       console.log(err);
     }
 
-    this.catService.getPub("http://localhost:8080/benevols")
+    this.catService.getPub("https://our-backend.herokuapp.com/benevols")
       .subscribe(data => {
         this.benevol = data;
 
       }), err => {
       console.log(err);
     }
-    this.catService.getPub("http://localhost:8080/admins")
+    this.catService.getPub("https://our-backend.herokuapp.com/admins")
       .subscribe(data => {
         this.admin = data;
 
@@ -67,7 +67,7 @@ export class AssociationComponent implements OnInit {
 
       this.change.etat = "Occupée";
 
-      this.catService.getPub("http://localhost:8080/associations/"+this.moi )
+      this.catService.getPub("https://our-backend.herokuapp.com/associations/"+this.moi )
         .subscribe(resss => {
           this.user = resss;
 
@@ -75,7 +75,7 @@ export class AssociationComponent implements OnInit {
         console.log(err);
       };
       this.user.tel+=1;
-      this.catService.selectPub("http://localhost:8080/associations/"+this.user.id_asso , this.user)
+      this.catService.selectPub("https://our-backend.herokuapp.com/associations/"+this.user.id_asso , this.user)
         .subscribe(data => {
           this.publication = data;
 
@@ -83,7 +83,7 @@ export class AssociationComponent implements OnInit {
         console.log(err);
       };
       this.change.id_association=this.user.id_asso ;
-      this.catService.selectPub("http://localhost:8080/publications/"+p.id , this.change)
+      this.catService.selectPub("https://our-backend.herokuapp.com/publications/"+p.id , this.change)
         .subscribe(data => {
           this.publication = data;
 
@@ -91,11 +91,11 @@ export class AssociationComponent implements OnInit {
         console.log(err);
       };
 
-      this.catService.getPub("http://localhost:8080/benevol/" + p.id_benevol)
+      this.catService.getPub("https://our-backend.herokuapp.com/benevol/" + p.id_benevol)
         .subscribe(data => {
           this.benevole = data;
           this.benevole.notification += 1;
-          this.catService.selectPub("http://localhost:8080/benevol/"+p.id_benevol, this.benevole)
+          this.catService.selectPub("https://our-backend.herokuapp.com/benevol/"+p.id_benevol, this.benevole)
             .subscribe(ress => {
               this.benevol = ress;
 
