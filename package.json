@@ -30,7 +30,7 @@
     "@angular/router": "~9.1.0",
     "@material/dialog": "^6.0.0",
     "@ng-bootstrap/ng-bootstrap": "^6.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.5.0",
     "express": "^4.17.1",
